@@ -31,7 +31,6 @@ const PopularCard = ({
   const [isSideMenuOpen, setIsSideMenuOpen] = useState<boolean>(false);
   const [cartItems, setCartItems] = useState<Product[]>([]);
   const handleNavigateToWishlist = () => {
-    // Replace this with actual navigation logic (e.g., router.push("/wishlist"))
     console.log("Navigating to Wishlist...");
     setShowPopup(false);
   };

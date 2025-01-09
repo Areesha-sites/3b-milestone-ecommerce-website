@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import CardsSlider from "./Slider";
+// import CardsSlider from "./Slider";
 const PopularFoodSection = () => {
   return (
     <section className="w-full xl:px-5 bg-black pb-16 text-white ">
@@ -18,7 +18,7 @@ const PopularFoodSection = () => {
       >
         Popular Food Items
       </h1>
-      <CardsSlider />
+      {/* <CardsSlider /> */}
     </section>
   );
 };
