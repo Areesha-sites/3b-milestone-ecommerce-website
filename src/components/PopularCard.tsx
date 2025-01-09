@@ -7,7 +7,7 @@ import { BsCart3 } from "react-icons/bs";
 import { GoHeart } from "react-icons/go";
 import { useEffect } from "react";
 import CartSideMenu from "./CartSideMenu";
-import { addToWishlist, removeFromWishlist } from "@/app/utils/LocalStorageHelper";
+import { removeFromWishlist, addToWishlist } from "@/app/utils/localStorageHelper";
 interface Product {
   id: string;
   name: string;
