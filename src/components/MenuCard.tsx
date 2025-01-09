@@ -18,7 +18,7 @@ interface Product {
   price: number;
   discount?: number;
   stock?: number | string;
-  quantity: number;
+  quantity: number ;
 }
 const MenuCard = ({
   id,

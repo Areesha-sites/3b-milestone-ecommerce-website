@@ -12,10 +12,8 @@ const MenuTabs = () => {
     { id: "desserts", label: "Desserts" },
     { id: "deals", label: "Deals" },
   ];
-  const filteredData = menuData.map((item) => ({
-    ...item,
-    quantity: item.quantity ?? 0,
-  }));
+  const filteredData = menuData.filter((item) => item.category === activeTab);
+  
   return (
     <div className="flex flex-col items-center justify-center w-[300px] mx-auto md:w-[700px] md:max-w-[1280px]">
       <div className="mb-4">
@@ -41,8 +39,9 @@ const MenuTabs = () => {
           ))}
         </ul>
       </div>
+      
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-[30px] gap-[10px] lg:gap-[20px] md:w-[700px] xl:w-[1100px] lg:w-[900px] relative top-[30px] mx-auto w-full lg:left-[-100px] md:left-[-20px] xl:left-[-200px] xl:gap-y-7 xs:ml-[-10px] ms:ml-0 xsm:ml-0 sm:ml-0">
-        {filteredData.length > 0 ? (
+      {filteredData.length > 0 ? (
           filteredData.map((item, index) => (
             <MenuCard
               key={index}
@@ -50,10 +49,8 @@ const MenuTabs = () => {
               name={item.name}
               image={item.image}
               price={item.price}
-              quantity={item.quantity}
-              stock={
-                typeof item.stock === "number" ? item.stock : "Out of Stock"
-              }
+              quantity={item.quantity || 1}  
+              stock={typeof item.stock === "number" ? item.stock : "Out of Stock"}
             />
           ))
         ) : (
