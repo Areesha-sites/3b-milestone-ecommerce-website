@@ -13,8 +13,8 @@ interface Product {
   name: string;
   image: string;
   price: number;
+  stock?: number; // Now only number (remove string and undefined from the union)
   discount?: number;
-  stock?: number;
   quantity: number;
 }
 const PopularCard = ({
