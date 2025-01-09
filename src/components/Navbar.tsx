@@ -10,11 +10,18 @@ import { FiHeart } from "react-icons/fi";
 import { NavbarLinksType } from "../../types/componentsTypes";
 import { NavbarPropsType } from "../../types/componentsTypes";
 import { ImSpoonKnife } from "react-icons/im";
+interface WishlistItemType {
+  id: string; 
+  name: string;
+  price: number;
+}
 const Navbar = ({ openNav }: NavbarPropsType) => {
   const [wishlistCount, setWishlistCount] = useState(0);
   useEffect(() => {
     const wishlistString = localStorage.getItem("wishlist");
-    const wishlist: any[] = wishlistString ? JSON.parse(wishlistString) : [];
+    const wishlist: WishlistItemType[] = wishlistString 
+      ? JSON.parse(wishlistString) 
+      : []; 
     setWishlistCount(wishlist.length);
   }, []);
   const navLinks: NavbarLinksType[] = [
