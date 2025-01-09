@@ -13,7 +13,8 @@ import { ImSpoonKnife } from "react-icons/im";
 const Navbar = ({ openNav }: NavbarPropsType) => {
   const [wishlistCount, setWishlistCount] = useState(0);
   useEffect(() => {
-    const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    const wishlistString = localStorage.getItem("wishlist");
+    const wishlist: any[] = wishlistString ? JSON.parse(wishlistString) : [];
     setWishlistCount(wishlist.length);
   }, []);
   const navLinks: NavbarLinksType[] = [
