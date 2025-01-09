@@ -12,29 +12,28 @@ import {
   removeFromWishlist,
 } from "@/app/utils/localStorageHelper";
 interface Product {
-  id: string,
-  name: string,
-   image: string,
-   price: number,
-   discount?: number,
-   stock?: number,
-   quantity: number
+  id: string;
+  name: string;
+  image: string;
+  price: number;
+  discount?: number;
+  stock?: number | string;
+  quantity: number;
 }
 const MenuCard = ({
   id,
-  image,
   name,
+  image,
   price,
-  discount,
   stock,
-  quantity
+  discount,
+  quantity,
 }: Product) => {
   const [isAddedToWishlist, setIsAddedToWishlist] = useState<boolean>(false);
   const [showPopup, setShowPopup] = useState<boolean>(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState<boolean>(false);
   const [cartItems, setCartItems] = useState<Product[]>([]);
   const handleNavigateToWishlist = () => {
-    // Replace this with actual navigation logic (e.g., router.push("/wishlist"))
     console.log("Navigating to Wishlist...");
     setShowPopup(false);
   };
@@ -51,15 +50,14 @@ const MenuCard = ({
   const handleAddToCart = (product: Product) => {
     const updatedCart = [...cartItems];
     const existingProductIndex = updatedCart.findIndex(
-      (item) => item.id === product.id 
+      (item) => item.id === product.id
     );
-  
     if (existingProductIndex >= 0) {
-      updatedCart[existingProductIndex].quantity = (updatedCart[existingProductIndex].quantity || 0) + 1;
+      updatedCart[existingProductIndex].quantity =
+        (updatedCart[existingProductIndex].quantity || 0) + 1;
     } else {
       updatedCart.push({ ...product, quantity: 1 });
     }
-  
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     setCartItems(updatedCart);
     setIsSideMenuOpen(true);
@@ -138,40 +136,39 @@ const MenuCard = ({
           </div>
 
           {showPopup && (
-      <div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50 backdrop-blur-lg"
-        aria-labelledby="modal-title"
-        role="dialog"
-        aria-modal="true"
-      >
-        <div className="relative p-4 w-full max-w-md max-h-full bg-white rounded-lg shadow-lg">
-          <button
-            onClick={() => setShowPopup(false)}
-            className="absolute top-3 right-3 text-gray-400 hover:text-gray-900 rounded-lg text-sm w-8 h-8 flex items-center justify-center focus:outline-none"
-          >
-            <span className="sr-only">Close modal</span>
-            X
-          </button>
-          <div className="p-4 text-center">
-            <h3 className="mb-5 text-lg font-normal text-gray-500">
-              Added to Wishlist
-            </h3>
-            <button
-              onClick={handleNavigateToWishlist}
-              className="text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5"
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50 backdrop-blur-lg"
+              aria-labelledby="modal-title"
+              role="dialog"
+              aria-modal="true"
             >
-              Go to Wishlist
-            </button>
-            <button
-              onClick={() => setShowPopup(false)}
-              className="ml-3 py-2.5 px-5 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:ring-4 focus:ring-gray-100"
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
-      </div>
-    )}
+              <div className="relative p-4 w-full max-w-md max-h-full bg-white rounded-lg shadow-lg">
+                <button
+                  onClick={() => setShowPopup(false)}
+                  className="absolute top-3 right-3 text-gray-400 hover:text-gray-900 rounded-lg text-sm w-8 h-8 flex items-center justify-center focus:outline-none"
+                >
+                  <span className="sr-only">Close modal</span>X
+                </button>
+                <div className="p-4 text-center">
+                  <h3 className="mb-5 text-lg font-normal text-gray-500">
+                    Added to Wishlist
+                  </h3>
+                  <button
+                    onClick={handleNavigateToWishlist}
+                    className="text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5"
+                  >
+                    Go to Wishlist
+                  </button>
+                  <button
+                    onClick={() => setShowPopup(false)}
+                    className="ml-3 py-2.5 px-5 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:ring-4 focus:ring-gray-100"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
           <div className="flex justify-center items-center h-48 hover:bg-yellow-500 transition duration-300 rounded-[20px] ">
             <Image
               height={170}
@@ -182,11 +179,10 @@ const MenuCard = ({
             />
           </div>
           <div className="mt-4 px-5 pb-5">
-         
-              <h5 className="text-[23px] font-semibold font-roboto text-white">
-                {name}
-              </h5>
-         
+            <h5 className="text-[23px] font-semibold font-roboto text-white">
+              {name}
+            </h5>
+
             <div className="mt-2.5 mb-5 flex items-center justify-between">
               <div className="flex justify-start">
                 <span className="mr-2 rounded bg-btnBackground text-white px-2.5 py-0.5 text-xs font-semibold">
@@ -212,7 +208,15 @@ const MenuCard = ({
             <div className="flex items-center justify-between">
               <button
                 onClick={() =>
-                  handleAddToCart({ id, image, name, price, discount, stock, quantity })
+                  handleAddToCart({
+                    id,
+                    image,
+                    name,
+                    price,
+                    discount,
+                    stock,
+                    quantity,
+                  })
                 }
                 className="flex items-center rounded-md bg-btnBackground px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-hoverBtnBackground font-roboto"
               >

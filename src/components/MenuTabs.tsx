@@ -12,7 +12,10 @@ const MenuTabs = () => {
     { id: "desserts", label: "Desserts" },
     { id: "deals", label: "Deals" },
   ];
-  const filteredData = menuData.filter((item) => item.category === activeTab);
+  const filteredData = menuData.map((item) => ({
+    ...item,
+    quantity: item.quantity ?? 0,
+  }));
   return (
     <div className="flex flex-col items-center justify-center w-[300px] mx-auto md:w-[700px] md:max-w-[1280px]">
       <div className="mb-4">
@@ -46,8 +49,11 @@ const MenuTabs = () => {
               id={item.id}
               name={item.name}
               image={item.image}
-              des={item.des}
               price={item.price}
+              quantity={item.quantity}
+              stock={
+                typeof item.stock === "number" ? item.stock : "Out of Stock"
+              }
             />
           ))
         ) : (
