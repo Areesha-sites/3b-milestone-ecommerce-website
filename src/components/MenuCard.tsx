@@ -7,33 +7,52 @@ import { BsCart3 } from "react-icons/bs";
 import { GoHeart } from "react-icons/go";
 import { useEffect } from "react";
 import CartSideMenu from "./CartSideMenu";
+import Button from "@mui/material/Button";
+import Snackbar, { SnackbarCloseReason } from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 import {
   addToWishlist,
   removeFromWishlist,
 } from "@/app/utils/localStorageHelper";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 interface Product {
   id: string;
   name: string;
   image: string;
   price: number;
   discount?: number;
-  stock?: number | string;
-  quantity: number ;
+  stock?: number;
+  quantity: number;
 }
-const MenuCard = ({
+const PopularCard = ({
   id,
-  name,
   image,
+  name,
   price,
-  stock,
   discount,
+  stock,
   quantity,
 }: Product) => {
   const [isAddedToWishlist, setIsAddedToWishlist] = useState<boolean>(false);
   const [showPopup, setShowPopup] = useState<boolean>(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState<boolean>(false);
   const [cartItems, setCartItems] = useState<Product[]>([]);
+  const [sheetOpen, setSheetOpen] = useState(false);
+
+  const handleOpenSheet = () => {
+    setSheetOpen(true);
+  };
   const handleNavigateToWishlist = () => {
+    // Replace this with actual navigation logic (e.g., router.push("/wishlist"))
     console.log("Navigating to Wishlist...");
     setShowPopup(false);
   };
@@ -52,12 +71,14 @@ const MenuCard = ({
     const existingProductIndex = updatedCart.findIndex(
       (item) => item.id === product.id
     );
+
     if (existingProductIndex >= 0) {
       updatedCart[existingProductIndex].quantity =
         (updatedCart[existingProductIndex].quantity || 0) + 1;
     } else {
       updatedCart.push({ ...product, quantity: 1 });
     }
+
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     setCartItems(updatedCart);
     setIsSideMenuOpen(true);
@@ -114,9 +135,25 @@ const MenuCard = ({
     removeFromWishlist(id);
     setIsAddedToWishlist(false);
   };
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: SnackbarCloseReason
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
   return (
     <>
-      <div className="">
+      <div className="w-full ">
         <div
           data-aos="fade-up"
           data-aos-delay="200"
@@ -128,47 +165,14 @@ const MenuCard = ({
               isAddedToWishlist ? handleRemoveFromWishlist : handleAddToWishlist
             }
           >
-            <GoHeart
-              className={`h-5 w-5 text-white cursor-pointer ${
-                isAddedToWishlist ? "text-red-500" : "text-white"
-              } heart-icon`}
-            />
+            <Button onClick={handleClick}>
+              <GoHeart
+                className={`h-5 w-5 text-white cursor-pointer ${
+                  isAddedToWishlist ? "text-red-500" : "text-white"
+                } heart-icon`}
+              />
+            </Button>
           </div>
-
-          {showPopup && (
-            <div
-              className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50 backdrop-blur-lg"
-              aria-labelledby="modal-title"
-              role="dialog"
-              aria-modal="true"
-            >
-              <div className="relative p-4 w-full max-w-md max-h-full bg-white rounded-lg shadow-lg">
-                <button
-                  onClick={() => setShowPopup(false)}
-                  className="absolute top-3 right-3 text-gray-400 hover:text-gray-900 rounded-lg text-sm w-8 h-8 flex items-center justify-center focus:outline-none"
-                >
-                  <span className="sr-only">Close modal</span>X
-                </button>
-                <div className="p-4 text-center">
-                  <h3 className="mb-5 text-lg font-normal text-gray-500">
-                    Added to Wishlist
-                  </h3>
-                  <button
-                    onClick={handleNavigateToWishlist}
-                    className="text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5"
-                  >
-                    Go to Wishlist
-                  </button>
-                  <button
-                    onClick={() => setShowPopup(false)}
-                    className="ml-3 py-2.5 px-5 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:ring-4 focus:ring-gray-100"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
           <div className="flex justify-center items-center h-48 hover:bg-yellow-500 transition duration-300 rounded-[20px] ">
             <Image
               height={170}
@@ -205,25 +209,31 @@ const MenuCard = ({
                 </span>
               </p>
             </div>
-            <div className="flex items-center justify-between">
-              <button
-                onClick={() =>
-                  handleAddToCart({
-                    id,
-                    image,
-                    name,
-                    price,
-                    discount,
-                    stock,
-                    quantity,
-                  })
-                }
-                className="flex items-center rounded-md bg-btnBackground px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-hoverBtnBackground font-roboto"
-              >
-                <BsCart3 className="h-5 w-5 text-white mr-2 font-bold" />
-                Add to cart
-              </button>
 
+
+
+
+
+
+            <div className="flex items-center justify-between">
+            <button 
+        onClick={() => { 
+          handleAddToCart({ 
+            id, 
+            image, 
+            name, 
+            price, 
+            discount, 
+            stock, 
+            quantity 
+          }); 
+          handleOpenSheet(); 
+        }} 
+        className="flex items-center rounded-md bg-btnBackground px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-hoverBtnBackground font-roboto"
+      >
+        <BsCart3 className="h-5 w-5 text-white mr-2 font-bold" />
+        Add to cart
+      </button>
               <Link
                 href={`/menuDetails/${id}`}
                 passHref
@@ -234,7 +244,32 @@ const MenuCard = ({
             </div>
           </div>
         </div>
-        <CartSideMenu
+
+
+        <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+        <SheetTrigger asChild>
+          {/* This is a hidden trigger, it's not rendered on the screen */}
+          <div style={{ display: 'none' }} /> 
+        </SheetTrigger>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Cart</SheetTitle> 
+          </SheetHeader>
+          <div className="p-4"> 
+            <CartSideMenu 
+              products={cartItems} 
+              isOpen={true} // Always open within the sheet
+              onClose={() => setSheetOpen(false)} 
+              onAddToCart={goToCart} 
+              onDelete={handleDeleteFromCart} 
+              onIncreaseQuantity={handleIncreaseQuantity} 
+              onDecreaseQuantity={handleDecreaseQuantity} 
+              totalPrice={calculateTotalPrice()} 
+            />
+          </div>
+        </SheetContent>
+      </Sheet>
+        {/* <CartSideMenu
           products={cartItems}
           isOpen={isSideMenuOpen}
           onClose={closeSideMenu}
@@ -243,10 +278,15 @@ const MenuCard = ({
           onIncreaseQuantity={handleIncreaseQuantity}
           onDecreaseQuantity={handleDecreaseQuantity}
           totalPrice={calculateTotalPrice()}
-        />
+        /> */}
       </div>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" variant="filled">
+          Added to wishlist successfully!
+        </Alert>
+      </Snackbar>
     </>
   );
 };
 
-export default MenuCard;
+export default PopularCard;

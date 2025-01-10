@@ -120,3 +120,7 @@ export interface PopularCardPropsType {
    stock?: number,
    quantity: number
 }
+export interface FollowProps {
+  id: number;
+  image: string;
+}

@@ -19,12 +19,12 @@ const Contact = () => {
   }, []);
   return (
     <>
-      <section className="bg-black w-full h-auto py-44 md:pt-44 lg:pt-48 pt-40 md:px-14 px-5 text-white lg:w-[1440px] mx-auto relative">
+      <section className="bg-black w-full h-auto py-44 md:pt-52 lg:pt-48 xxl:py-52 pt-40 md:px-14 px-5 text-white">
         <div className="flex justify-center items-center flex-col gap-y-5">
           <span
             data-aos="fade-up"
             data-aos-delay="200"
-            className="xl:text-[18px] md:text-[15px] text-[14px] mb-[-20px] lg:mb-[-10px] md:mb-[-20px] font-greatVibes text-btnBackground font-normal"
+            className="xl:text-[18px] md:text-[15px] text-[14px] mb-[-20px] lg:mb-[-10px] md:mb-[-10px] font-greatVibes text-btnBackground font-normal text-center"
           >
             We are Just a Message Away!
           </span>
@@ -43,7 +43,7 @@ const Contact = () => {
           <p
             data-aos="fade-up"
             data-aos-delay="200"
-            className="text-white/70 text-[12px] xxl:text-[16px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full"
+            className="text-white/70 text-[12px] xxl:text-[16px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full "
           >
             Have questions, feedback, or need assistance? We would love to hear
             from you! At Chow Champs, your satisfaction is our priority. Use the
@@ -191,7 +191,7 @@ const Contact = () => {
               </label>
               <input
                 type="text"
-                className="contactInput px-4 py-3 text-white/70 text-[12px] font-roboto border-none outline-none mt-1 w-full md:w-[355px] lg:w-[500px] xl:w-[660px] xxl:text-[16px]"
+                className="contactInput px-4 py-3 text-white/70 text-[12px] font-roboto border-none outline-none mt-1 w-full md:w-[355px] lg:w-[500px] xl:w-[657px] xxl:text-[16px]"
                 placeholder="Subject"
                 required
               />
@@ -207,7 +207,7 @@ const Contact = () => {
               </label>
               <textarea
                 rows={7}
-                className="contactInput px-4 py-3 text-white/70 text-[12px] font-roboto border-none outline-none mt-1 w-full  md:w-[355px]  lg:w-[500px] xl:w-[660px] xxl:text-[16px]"
+                className="contactInput px-4 py-3 text-white/70 text-[12px] font-roboto border-none outline-none mt-1 w-full  md:w-[355px]  lg:w-[500px] xl:w-[657px] xxl:text-[16px]"
                 placeholder="Your Message"
                 required
               />

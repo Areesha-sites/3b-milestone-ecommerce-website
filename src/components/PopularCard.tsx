@@ -13,7 +13,7 @@ interface Product {
   name: string;
   image: string;
   price: number;
-  stock?: number; // Now only number (remove string and undefined from the union)
+  stock?: number | string;
   discount?: number;
   quantity: number;
 }

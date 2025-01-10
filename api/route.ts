@@ -1025,3 +1025,102 @@ export const popularCardsData = [
     benefits5: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ];
+
+export const followData = [
+  {
+    id: 1,
+    image: "/data1.jpg",
+  },
+  {
+    id: 2,
+    image: "/data2.jpg",
+  },
+  {
+    id: 3,
+    image: "/data3.jpg",
+  },
+  {
+    id: 4,
+    image: "/data4.jpg",
+  },
+  {
+    id: 5,
+    image: "/data5.jpg",
+  },
+  {
+    id: 6,
+    image: "/data6.jpg",
+  },
+  {
+    id: 7,
+    image: "/data7.jpg",
+  },
+  {
+    id: 8,
+    image: "/data8.jpg",
+  },
+  {
+    id: 9,
+    image: "/data9.jpg",
+  },
+  {
+    id: 10,
+    image: "/data10.jpg",
+  },
+  {
+    id: 11,
+    image: "/data11.jpg",
+  },
+  {
+    id: 12,
+    image: "/data12.jpg",
+  },
+  {
+    id: 13,
+    image: "/data13.jpg",
+  },
+  {
+    id: 14,
+    image: "/data14.jpg",
+  },
+  {
+    id: 15,
+    image: "/data15.jpg",
+  },
+  {
+    id: 16,
+    image: "/data16.jpg",
+  },
+  {
+    id: 17,
+    image: "/data17.jpg",
+  },
+  {
+    id: 18,
+    image: "/data18.jpg",
+  },
+  {
+    id: 19,
+    image: "/data19.jpg",
+  },
+  {
+    id: 20,
+    image: "/data20.jpg",
+  },
+  {
+    id: 21,
+    image: "/data21.jpg",
+  },
+  {
+    id: 22,
+    image: "/data22.jpg",
+  },
+  {
+    id: 23,
+    image: "/data23.jpg",
+  },
+  {
+    id: 24,
+    image: "/data24.jpg",
+  },
+];

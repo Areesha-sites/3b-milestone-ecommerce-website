@@ -10,6 +10,19 @@ import { FiHeart } from "react-icons/fi";
 import { NavbarLinksType } from "../../types/componentsTypes";
 import { NavbarPropsType } from "../../types/componentsTypes";
 import { ImSpoonKnife } from "react-icons/im";
+import Badge, { BadgeProps } from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; 
+const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`, 
+    padding: '0 4px',
+    backgroundColor: '#ffb200', // Set background color to yellow
+  },
+}));
 interface WishlistItemType {
   id: string; 
   name: string;
@@ -136,16 +149,25 @@ const Navbar = ({ openNav }: NavbarPropsType) => {
                   <FaSearch className="text-white hover:scale-110 hover:text-btnBackground transition-all duration-300 ease-linear xl:h-[24px] xl:w-[24px] md:w-[22px] md:h-[22px] h-[19px] w-[19px]" />
                 </button>
 
+
+
+
                 <div className="relative flex items-center">
+
+
+                  
                   <Link
                     href="/cart"
                     className="relative flex items-center justify-center"
                   >
-                    <FaCartArrowDown className="text-white hover:scale-110 hover:text-btnBackground transition-all duration-300 ease-linear md:h-[24px] md:w-[24px] xl:h-[27px] xl:w-[27px] h-[19px] w-[19px]" />
+<IconButton aria-label="cart" className="text-white">
+  <StyledBadge badgeContent={4} color="secondary">
+    <ShoppingCartIcon style={{ color: 'white' }} /> 
+  </StyledBadge>
+</IconButton>
+                    
                   </Link>
-                  <div className="absolute -top-[10px] -right-[10px] md:-top-[7px] xl:h-5 xl:w-5 h-4 w-4 rounded-full bg-red-500 flex items-center justify-center">
-                    <span className="text-[10px] text-white">1</span>
-                  </div>
+                 
                 </div>
 
                 <div className="relative flex items-center">

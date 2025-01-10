@@ -4,10 +4,11 @@ import Banner from "@/components/Banner";
 import ThreeCardsSection from "@/components/ThreeCardsSection";
 import TwoCardsSection from "@/components/TwoCardsSection";
 import BestTestedFood from "@/components/BestTestedFood";
-// import PopularFoodSection from "@/components/PopularFoodSection";
+import PopularFoodSection from "@/components/PopularFoodSection";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import SliderItem from "@/components/SliderItems";
 export default function Home() {
   useEffect(() => {
     AOS.init({
@@ -26,7 +27,7 @@ export default function Home() {
           <ThreeCardsSection />
           <TwoCardsSection />
           <BestTestedFood />
-          {/* <PopularFoodSection /> */}
+        <SliderItem/>
         </div>
       </div>
     </>

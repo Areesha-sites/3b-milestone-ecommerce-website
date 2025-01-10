@@ -6,12 +6,25 @@ import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
 import { RiSubtractFill } from "react-icons/ri";
 import { IoMdAdd } from "react-icons/io";
+import { Button } from "@/components/ui/button"
+// import { Input } from "@/components/ui/input"
+// import { Label } from "@/components/ui/label"
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 interface Product {
   id: string;
   name: string;
   image: string;
   price: number;
-  stock?: number | string ;
+  stock?: number | string; 
   discount?: number;
   quantity: number;
 }
@@ -172,7 +185,7 @@ const CartSideMenu = ({
             </button>
           </Link>
           <Link href="/cart">
-            <button className="w-full h-[40px] px-4 flex justify-center items-center py-2 border-[1px] border-white/45 rounded-[2px]">
+            <button className="w-full h-[40px] text-white px-4 flex justify-center items-center py-2 border-[1px] border-white/45 rounded-[2px]">
               Go to Cart
             </button>
           </Link>
