@@ -29,9 +29,9 @@ const CartSideMenu = ({
   products,
   isOpen,
   onClose,
-  onDelete, // This should accept a Product type
-  onIncreaseQuantity, // This should accept a Product type
-  onDecreaseQuantity, // This should accept a Product type
+  onDelete, 
+  onIncreaseQuantity, 
+  onDecreaseQuantity, 
  
 }: CartSideMenuProps) => {
   const [cartProducts, setCartProducts] = useState<Product[]>([]);
@@ -111,7 +111,7 @@ const CartSideMenu = ({
                       alt={product.name}
                       height={60}
                       width={60}
-                      className="w-[40px] h-[40px]"
+                      className="w-[40px] h-[40px] object-cover"
                     />
                   )}
                 </div>
