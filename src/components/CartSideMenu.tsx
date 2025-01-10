@@ -29,30 +29,33 @@ const CartSideMenu = ({
   products,
   isOpen,
   onClose,
-  onDelete,
+  onDelete, // This should accept a Product type
+  onIncreaseQuantity, // This should accept a Product type
+  onDecreaseQuantity, // This should accept a Product type
+ 
 }: CartSideMenuProps) => {
   const [cartProducts, setCartProducts] = useState<Product[]>([]);
   useEffect(() => {
     setCartProducts(products);
   }, [products]);
-  const handleIncrease = (id: string) => {
-    setCartProducts((prev) =>
-      prev.map((product) =>
-        product.id === id
-          ? { ...product, quantity: product.quantity + 1 }
-          : product
-      )
-    );
-  };
-  const handleDecrease = (id: string) => {
-    setCartProducts((prev) =>
-      prev.map((product) =>
-        product.id === id && product.quantity > 1
-          ? { ...product, quantity: product.quantity - 1 }
-          : product
-      )
-    );
-  };
+  // const onIncreaseQuantity = (id: string) => {
+  //   setCartProducts((prev) =>
+  //     prev.map((product) =>
+  //       product.id === id
+  //         ? { ...product, quantity: product.quantity + 1 }
+  //         : product
+  //     )
+  //   );
+  // };
+  // const onDecreaseQuantity = (id: string) => {
+  //   setCartProducts((prev) =>
+  //     prev.map((product) =>
+  //       product.id === id && product.quantity > 1
+  //         ? { ...product, quantity: product.quantity - 1 }
+  //         : product
+  //     )
+  //   );
+  // };
   const calculateSubtotal = () => {
     return cartProducts.reduce(
       (total, product) => total + product.price * product.quantity,
@@ -124,14 +127,14 @@ const CartSideMenu = ({
                       <div className="flex justify-center gap-x-[10px] items-center border-[1px] px-2 py-[2px] rounded border-white/40">
                         <RiSubtractFill
                           className="h-3 w-3 text-white/50 cursor-pointer"
-                          onClick={() => handleDecrease(product.id)}
+                          onClick={() => onDecreaseQuantity(product)}
                         />
                         <p className="text-[13px] font-roboto font-medium text-white/50">
                           {product.quantity}
                         </p>
                         <IoMdAdd
                           className="h-3 w-3 text-white/50 cursor-pointer"
-                          onClick={() => handleIncrease(product.id)}
+                          onClick={() => onIncreaseQuantity(product)}
                         />
                       </div>
                       <p className="text-white/50">

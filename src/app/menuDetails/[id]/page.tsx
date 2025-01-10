@@ -30,7 +30,7 @@ interface Product {
   image: string;
   price: number;
   discount?: number;
-  stock?: number;
+  stock?: number | string;
   quantity: number;
 }
 const MenuDetails: React.FC<Props> = ({ params }) => {
@@ -361,14 +361,14 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
           </div>
         </div>
         <CartSideMenu
-          products={cartItems}
-          isOpen={isSideMenuOpen}
-          onClose={closeSideMenu}
-          onAddToCart={goToCart}
-          onDelete={handleDeleteFromCart}
-          onIncreaseQuantity={handleIncreaseQuantity}
-          onDecreaseQuantity={handleDecreaseQuantity}
-          totalPrice={calculateTotalPrice()}
+          products={cartItems} // Array of products
+          isOpen={isSideMenuOpen} // Boolean value for open/close state
+          onClose={closeSideMenu} // Close menu handler
+          onAddToCart={goToCart} // Add to cart handler
+          onDelete={handleDeleteFromCart} // Delete from cart handler
+          onIncreaseQuantity={handleIncreaseQuantity} // Increase quantity handler
+          onDecreaseQuantity={handleDecreaseQuantity} // Decrease quantity handler
+          totalPrice={calculateTotalPrice()} // Total price
         />
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
           <Alert onClose={handleClose} severity="success" variant="filled">
