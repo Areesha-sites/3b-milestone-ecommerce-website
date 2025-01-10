@@ -19,7 +19,7 @@ type CartSideMenuProps = {
   products: Product[];
   isOpen: boolean;
   onClose: () => void;
-  onAddToCart: (product: Product) => void;
+  // onAddToCart: (product: Product) => void;
   onDelete: (product: Product) => void;
   onIncreaseQuantity: (product: Product) => void;
   onDecreaseQuantity: (product: Product) => void;
