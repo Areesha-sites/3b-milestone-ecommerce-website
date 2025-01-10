@@ -4,7 +4,6 @@ import Banner from "@/components/Banner";
 import ThreeCardsSection from "@/components/ThreeCardsSection";
 import TwoCardsSection from "@/components/TwoCardsSection";
 import BestTestedFood from "@/components/BestTestedFood";
-import PopularFoodSection from "@/components/PopularFoodSection";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
@@ -20,14 +19,14 @@ export default function Home() {
   }, []);
   return (
     <>
-      <div className="">
+      <div>
         <Header />
-        <div className="">
+        <div>
           <Banner />
           <ThreeCardsSection />
           <TwoCardsSection />
           <BestTestedFood />
-        <SliderItem/>
+          <SliderItem />
         </div>
       </div>
     </>

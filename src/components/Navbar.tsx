@@ -5,26 +5,25 @@ import { HiBars3BottomRight } from "react-icons/hi2";
 import { FaSearch } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
-import { FaCartArrowDown } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { NavbarLinksType } from "../../types/componentsTypes";
 import { NavbarPropsType } from "../../types/componentsTypes";
 import { ImSpoonKnife } from "react-icons/im";
-import Badge, { BadgeProps } from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; 
+import Badge, { BadgeProps } from "@mui/material/Badge";
+import { styled } from "@mui/material/styles";
+import IconButton from "@mui/material/IconButton";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
-  '& .MuiBadge-badge': {
+  "& .MuiBadge-badge": {
     right: -3,
     top: 13,
-    border: `2px solid ${theme.palette.background.paper}`, 
-    padding: '0 4px',
-    backgroundColor: '#ffb200', // Set background color to yellow
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: "0 4px",
+    backgroundColor: "#ffb200", 
   },
 }));
 interface WishlistItemType {
-  id: string; 
+  id: string;
   name: string;
   price: number;
 }
@@ -32,9 +31,9 @@ const Navbar = ({ openNav }: NavbarPropsType) => {
   const [wishlistCount, setWishlistCount] = useState(0);
   useEffect(() => {
     const wishlistString = localStorage.getItem("wishlist");
-    const wishlist: WishlistItemType[] = wishlistString 
-      ? JSON.parse(wishlistString) 
-      : []; 
+    const wishlist: WishlistItemType[] = wishlistString
+      ? JSON.parse(wishlistString)
+      : [];
     setWishlistCount(wishlist.length);
   }, []);
   const navLinks: NavbarLinksType[] = [
@@ -148,28 +147,18 @@ const Navbar = ({ openNav }: NavbarPropsType) => {
                 >
                   <FaSearch className="text-white hover:scale-110 hover:text-btnBackground transition-all duration-300 ease-linear xl:h-[24px] xl:w-[24px] md:w-[22px] md:h-[22px] h-[19px] w-[19px]" />
                 </button>
-
-
-
-
                 <div className="relative flex items-center">
-
-
-                  
                   <Link
                     href="/cart"
                     className="relative flex items-center justify-center"
                   >
-<IconButton aria-label="cart" className="text-white">
-  <StyledBadge badgeContent={4} color="secondary">
-    <ShoppingCartIcon style={{ color: 'white' }} /> 
-  </StyledBadge>
-</IconButton>
-                    
+                    <IconButton aria-label="cart" className="text-white">
+                      <StyledBadge badgeContent={4} color="secondary">
+                        <ShoppingCartIcon style={{ color: "white" }} />
+                      </StyledBadge>
+                    </IconButton>
                   </Link>
-                 
                 </div>
-
                 <div className="relative flex items-center">
                   <Link
                     href="/wishlist"
@@ -183,7 +172,6 @@ const Navbar = ({ openNav }: NavbarPropsType) => {
                     </span>
                   </div>
                 </div>
-
                 <HiBars3BottomRight
                   onClick={openNav}
                   className="md:w-8 md:h-8 h-6 w-6 cursor-pointer text-white hover:scale-110 hover:text-btnBackground transition-all duration-300 ease-linear lg:hidden"

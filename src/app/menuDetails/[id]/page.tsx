@@ -12,7 +12,6 @@ import { FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
 import { MenuDetailsPropsTypes } from "../../../../types/componentsTypes";
 import { useEffect } from "react";
 import CartSideMenu from "@/components/CartSideMenu";
-import Button from "@mui/material/Button";
 import Snackbar, { SnackbarCloseReason } from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import CardsSlider from "@/components/Slider";
@@ -20,12 +19,12 @@ import {
   addToWishlist,
   removeFromWishlist,
 } from "@/app/utils/localStorageHelper";
-// import CardsSlider from "@/app/Components/Slider";
 interface Props {
   params: {
     id: string;
   };
-}interface Product {
+}
+interface Product {
   id: string;
   name: string;
   image: string;
@@ -65,106 +64,93 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
       setCount(count - 1);
     }
   };
-    const [showPopup, setShowPopup] = useState<boolean>(false);
-    const [isSideMenuOpen, setIsSideMenuOpen] = useState<boolean>(false);
-    const [cartItems, setCartItems] = useState<Product[]>([]);
-     useEffect(() => {
-        try {
-          const savedCart = localStorage.getItem("cart");
-          const parsedCart = savedCart ? JSON.parse(savedCart) : [];
-          setCartItems(parsedCart);
-        } catch (error) {
-          console.error("Error parsing cart data from localStorage:", error);
-          setCartItems([]);
-        }
-      }, []);
-      const handleAddToCart = (product: Product) => {
-        const updatedCart = [...cartItems];
-        const existingProductIndex = updatedCart.findIndex(
-          (item) => item.id === product.id
-        );
-    
-        if (existingProductIndex >= 0) {
-          updatedCart[existingProductIndex].quantity =
-            (updatedCart[existingProductIndex].quantity || 0) + 1;
-        } else {
-          updatedCart.push({ ...product, quantity: 1 });
-        }
-    
-        localStorage.setItem("cart", JSON.stringify(updatedCart));
-        setCartItems(updatedCart);
-        setIsSideMenuOpen(true);
-      };
-      const handleDeleteFromCart = (product: Product) => {
-        const updatedCart = cartItems.filter(
-          (item: Product) => item.name !== product.name
-        );
-        localStorage.setItem("cart", JSON.stringify(updatedCart));
-        setCartItems(updatedCart);
-      };
-      const handleIncreaseQuantity = (product: Product) => {
-        const updatedCart = [...cartItems];
-        const productIndex = updatedCart.findIndex(
-          (item: Product) => item.name === product.name
-        );
-        if (productIndex >= 0) {
-          updatedCart[productIndex].quantity! += 1;
-          localStorage.setItem("cart", JSON.stringify(updatedCart));
-          setCartItems(updatedCart);
-        }
-      };
-      const handleDecreaseQuantity = (product: Product) => {
-        const updatedCart = [...cartItems];
-        const productIndex = updatedCart.findIndex(
-          (item: Product) => item.name === product.name
-        );
-        if (productIndex >= 0 && updatedCart[productIndex].quantity! > 1) {
-          updatedCart[productIndex].quantity! -= 1;
-          localStorage.setItem("cart", JSON.stringify(updatedCart));
-          setCartItems(updatedCart);
-        }
-      };
-      const closeSideMenu = () => {
-        setIsSideMenuOpen(false);
-      };
-      const goToCart = () => {
-        setIsSideMenuOpen(false);
-      };
-      const calculateTotalPrice = () => {
-        return cartItems.reduce(
-          (total, item) => total + item.price * item.quantity!,
-          0
-        );
-      };
-      const [open, setOpen] = React.useState(false);
-      
-      const handleClick = () => {
-        setOpen(true);
-      };
-    
-      const handleClose = (
-        event?: React.SyntheticEvent | Event,
-        reason?: SnackbarCloseReason
-      ) => {
-        if (reason === "clickaway") {
-          return;
-        }
-    
-        setOpen(false);
-      };
-    
-      // const handleAddToWishlist = () => {
-      //   const item = { id, name, image, price, discount, stock };
-      //   addToWishlist(item);
-      //   setIsAddedToWishlist(true);
-      //   setShowPopup(true);
-      //   setTimeout(() => setShowPopup(false), 2000);
-      // };
-      // const handleRemoveFromWishlist = () => {
-      //   removeFromWishlist(id);
-      //   setIsAddedToWishlist(false);
-      // };
-     
+  // const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState<boolean>(false);
+  const [cartItems, setCartItems] = useState<Product[]>([]);
+  useEffect(() => {
+    try {
+      const savedCart = localStorage.getItem("cart");
+      const parsedCart = savedCart ? JSON.parse(savedCart) : [];
+      setCartItems(parsedCart);
+    } catch (error) {
+      console.error("Error parsing cart data from localStorage:", error);
+      setCartItems([]);
+    }
+  }, []);
+  // const handleAddToCart = (product: Product) => {
+  //   const updatedCart = [...cartItems];
+  //   const existingProductIndex = updatedCart.findIndex(
+  //     (item) => item.id === product.id
+  //   );
+
+  //   if (existingProductIndex >= 0) {
+  //     updatedCart[existingProductIndex].quantity =
+  //       (updatedCart[existingProductIndex].quantity || 0) + 1;
+  //   } else {
+  //     updatedCart.push({ ...product, quantity: 1 });
+  //   }
+
+  //   localStorage.setItem("cart", JSON.stringify(updatedCart));
+  //   setCartItems(updatedCart);
+  //   setIsSideMenuOpen(true);
+  // };
+  const handleDeleteFromCart = (product: Product) => {
+    const updatedCart = cartItems.filter(
+      (item: Product) => item.name !== product.name
+    );
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCartItems(updatedCart);
+  };
+  const handleIncreaseQuantity = (product: Product) => {
+    const updatedCart = [...cartItems];
+    const productIndex = updatedCart.findIndex(
+      (item: Product) => item.name === product.name
+    );
+    if (productIndex >= 0) {
+      updatedCart[productIndex].quantity! += 1;
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      setCartItems(updatedCart);
+    }
+  };
+  const handleDecreaseQuantity = (product: Product) => {
+    const updatedCart = [...cartItems];
+    const productIndex = updatedCart.findIndex(
+      (item: Product) => item.name === product.name
+    );
+    if (productIndex >= 0 && updatedCart[productIndex].quantity! > 1) {
+      updatedCart[productIndex].quantity! -= 1;
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      setCartItems(updatedCart);
+    }
+  };
+  const closeSideMenu = () => {
+    setIsSideMenuOpen(false);
+  };
+  const goToCart = () => {
+    setIsSideMenuOpen(false);
+  };
+  const calculateTotalPrice = () => {
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity!,
+      0
+    );
+  };
+  const [open, setOpen] = React.useState(false);
+
+  // const handleClick = () => {
+  //   setOpen(true);
+  // };
+
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: SnackbarCloseReason
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
   const { id } = params;
   const product = menuData.find(
     (item: MenuDetailsPropsTypes) => item.id === id
@@ -267,19 +253,16 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
                   className="h-3 w-3 xxl:h-4 xxl:w-4 text-white"
                 />
               </div>
-              <button 
-              
-              // onClick={() =>
-              //   handleAddToCart({
-              
-              //   })
-              // }
-              className="h-[36px] w-[150px] xxl:w-[180px] xxl:h-[42px] xxl:px-5 xxl:py-2  bg-btnBackground px-4 py-2 flex justify-center items-center gap-[6px] rounded-[3px] hover:bg-hoverBtnBackground">
+              <button
+                // onClick={() =>
+                //   handleAddToCart({
+
+                //   })
+                // }
+                className="h-[36px] w-[150px] xxl:w-[180px] xxl:h-[42px] xxl:px-5 xxl:py-2  bg-btnBackground px-4 py-2 flex justify-center items-center gap-[6px] rounded-[3px] hover:bg-hoverBtnBackground"
+              >
                 <IoCartOutline className="h-4 w-4 xxl:w-6 xxl:h-6 text-white" />
-                <p
-             
-                  className="text-white font-roboto font-medium text-[14px] xxl:text-[16px] whitespace-nowrap"
-                >
+                <p className="text-white font-roboto font-medium text-[14px] xxl:text-[16px] whitespace-nowrap">
                   Add to cart
                 </p>
               </button>
@@ -300,9 +283,7 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
 
                 `}
               />
-              <p
-                className="text-white/50 font-normal xxl:text-[16px] hover:text-white transition-all duration-300 ease-linear text-[14px] font-roboto"
-              >
+              <p className="text-white/50 font-normal xxl:text-[16px] hover:text-white transition-all duration-300 ease-linear text-[14px] font-roboto">
                 Add to Wishlist
               </p>
             </div>
@@ -375,8 +356,8 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
               You Might Also Like
             </h1>
           </div>
-        <div className="relative">
-          <CardsSlider />
+          <div className="relative">
+            <CardsSlider />
           </div>
         </div>
         <CartSideMenu
@@ -389,11 +370,11 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
           onDecreaseQuantity={handleDecreaseQuantity}
           totalPrice={calculateTotalPrice()}
         />
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success" variant="filled">
-          Added to wishlist successfully!
-        </Alert>
-      </Snackbar>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="success" variant="filled">
+            Added to wishlist successfully!
+          </Alert>
+        </Snackbar>
       </section>
     </>
   );

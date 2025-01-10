@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import { FollowProps } from "../../types/componentsTypes";
-
 const ContactCardSlider = ({ image }: FollowProps) => {
   return (
     <div className="relative group ">

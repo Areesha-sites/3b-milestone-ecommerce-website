@@ -23,7 +23,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
+} from "@/components/ui/sheet";
 interface Product {
   id: string;
   name: string;
@@ -51,11 +51,10 @@ const PopularCard = ({
   const handleOpenSheet = () => {
     setSheetOpen(true);
   };
-  const handleNavigateToWishlist = () => {
-    // Replace this with actual navigation logic (e.g., router.push("/wishlist"))
-    console.log("Navigating to Wishlist...");
-    setShowPopup(false);
-  };
+  // const handleNavigateToWishlist = () => {
+  //   console.log("Navigating to Wishlist...");
+  //   setShowPopup(false);
+  // };
   useEffect(() => {
     try {
       const savedCart = localStorage.getItem("cart");
@@ -112,9 +111,9 @@ const PopularCard = ({
       setCartItems(updatedCart);
     }
   };
-  const closeSideMenu = () => {
-    setIsSideMenuOpen(false);
-  };
+  // const closeSideMenu = () => {
+  //   setIsSideMenuOpen(false);
+  // };
   const goToCart = () => {
     setIsSideMenuOpen(false);
   };
@@ -186,7 +185,6 @@ const PopularCard = ({
             <h5 className="text-[23px] font-semibold font-roboto text-white">
               {name}
             </h5>
-
             <div className="mt-2.5 mb-5 flex items-center justify-between">
               <div className="flex justify-start">
                 <span className="mr-2 rounded bg-btnBackground text-white px-2.5 py-0.5 text-xs font-semibold">
@@ -209,31 +207,25 @@ const PopularCard = ({
                 </span>
               </p>
             </div>
-
-
-
-
-
-
             <div className="flex items-center justify-between">
-            <button 
-        onClick={() => { 
-          handleAddToCart({ 
-            id, 
-            image, 
-            name, 
-            price, 
-            discount, 
-            stock, 
-            quantity 
-          }); 
-          handleOpenSheet(); 
-        }} 
-        className="flex items-center rounded-md bg-btnBackground px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-hoverBtnBackground font-roboto"
-      >
-        <BsCart3 className="h-5 w-5 text-white mr-2 font-bold" />
-        Add to cart
-      </button>
+              <button
+                onClick={() => {
+                  handleAddToCart({
+                    id,
+                    image,
+                    name,
+                    price,
+                    discount,
+                    stock,
+                    quantity,
+                  });
+                  handleOpenSheet();
+                }}
+                className="flex items-center rounded-md bg-btnBackground px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-hoverBtnBackground font-roboto"
+              >
+                <BsCart3 className="h-5 w-5 text-white mr-2 font-bold" />
+                Add to cart
+              </button>
               <Link
                 href={`/menuDetails/${id}`}
                 passHref
@@ -244,41 +236,28 @@ const PopularCard = ({
             </div>
           </div>
         </div>
-
-
         <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
-        <SheetTrigger asChild>
-          {/* This is a hidden trigger, it's not rendered on the screen */}
-          <div style={{ display: 'none' }} /> 
-        </SheetTrigger>
-        <SheetContent>
-          <SheetHeader>
-            <SheetTitle>Cart</SheetTitle> 
-          </SheetHeader>
-          <div className="p-4"> 
-            <CartSideMenu 
-              products={cartItems} 
-              isOpen={true} // Always open within the sheet
-              onClose={() => setSheetOpen(false)} 
-              onAddToCart={goToCart} 
-              onDelete={handleDeleteFromCart} 
-              onIncreaseQuantity={handleIncreaseQuantity} 
-              onDecreaseQuantity={handleDecreaseQuantity} 
-              totalPrice={calculateTotalPrice()} 
-            />
-          </div>
-        </SheetContent>
-      </Sheet>
-        {/* <CartSideMenu
-          products={cartItems}
-          isOpen={isSideMenuOpen}
-          onClose={closeSideMenu}
-          onAddToCart={goToCart}
-          onDelete={handleDeleteFromCart}
-          onIncreaseQuantity={handleIncreaseQuantity}
-          onDecreaseQuantity={handleDecreaseQuantity}
-          totalPrice={calculateTotalPrice()}
-        /> */}
+          <SheetTrigger asChild>
+            <div style={{ display: "none" }} />
+          </SheetTrigger>
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle>Cart</SheetTitle>
+            </SheetHeader>
+            <div className="p-4">
+              <CartSideMenu
+                products={cartItems}
+                isOpen={true}
+                onClose={() => setSheetOpen(false)}
+                onAddToCart={goToCart}
+                onDelete={handleDeleteFromCart}
+                onIncreaseQuantity={handleIncreaseQuantity}
+                onDecreaseQuantity={handleDecreaseQuantity}
+                totalPrice={calculateTotalPrice()}
+              />
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" variant="filled">

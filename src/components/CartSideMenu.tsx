@@ -6,30 +6,17 @@ import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
 import { RiSubtractFill } from "react-icons/ri";
 import { IoMdAdd } from "react-icons/io";
-import { Button } from "@/components/ui/button"
-// import { Input } from "@/components/ui/input"
-// import { Label } from "@/components/ui/label"
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
 interface Product {
   id: string;
   name: string;
   image: string;
   price: number;
-  stock?: number | string; 
+  stock?: number | string;
   discount?: number;
   quantity: number;
 }
 type CartSideMenuProps = {
-  products: Product[]; 
+  products: Product[];
   isOpen: boolean;
   onClose: () => void;
   onAddToCart: (product: Product) => void;
@@ -68,10 +55,10 @@ const CartSideMenu = ({
   };
   const calculateSubtotal = () => {
     return cartProducts.reduce(
-      (total, product) => total + product.price * product.quantity, 
+      (total, product) => total + product.price * product.quantity,
       0
     );
-  }
+  };
   const [isVisible, setIsVisible] = useState(isOpen);
   useEffect(() => {
     if (isOpen) {
