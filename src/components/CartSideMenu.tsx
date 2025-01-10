@@ -11,7 +11,7 @@ interface Product {
   name: string;
   image: string;
   price: number;
-  stock?: number | string;
+  stock?: number ;
   discount?: number;
   quantity: number;
 }

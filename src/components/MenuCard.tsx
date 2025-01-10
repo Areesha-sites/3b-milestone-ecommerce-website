@@ -41,7 +41,7 @@ const PopularCard = ({
 }: Product) => {
   const [isAddedToWishlist, setIsAddedToWishlist] = useState<boolean>(false);
   // const [showPopup, setShowPopup] = useState<boolean>(false);
-  // const [isSideMenuOpen, setIsSideMenuOpen] = useState<boolean>(false);
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState<boolean>(false);
   const [cartItems, setCartItems] = useState<Product[]>([]);
   const [sheetOpen, setSheetOpen] = useState(false);
 
@@ -108,12 +108,12 @@ const PopularCard = ({
       setCartItems(updatedCart);
     }
   };
-  // const closeSideMenu = () => {
-  //   setIsSideMenuOpen(false);
-  // };
-  // const goToCart = () => {
-  //   setIsSideMenuOpen(false);
-  // };
+  const closeSideMenu = () => {
+    setIsSideMenuOpen(false);
+  };
+  const goToCart = () => {
+    setIsSideMenuOpen(false);
+  };
   const calculateTotalPrice = () => {
     return cartItems.reduce(
       (total, item) => total + item.price * item.quantity!,
@@ -246,7 +246,7 @@ const PopularCard = ({
                 products={cartItems}
                 isOpen={true}
                 onClose={() => setSheetOpen(false)}
-                // onAddToCart={goToCart}
+                onAddToCart={goToCart}
                 onDelete={handleDeleteFromCart}
                 onIncreaseQuantity={handleIncreaseQuantity}
                 onDecreaseQuantity={handleDecreaseQuantity}
