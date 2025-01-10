@@ -15,8 +15,8 @@ type CartItem = {
 };
 const Cart = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
-const [subtotal, setSubtotal] = useState(0);
-const [total, setTotal] = useState(0);
+  const [subtotal, setSubtotal] = useState(0);
+  const [total, setTotal] = useState(0);
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
@@ -79,7 +79,7 @@ const [total, setTotal] = useState(0);
             products={cart}
             isOpen={false}
             onClose={() => {}}
-            onAddToCart={() => {}}
+            // onAddToCart={() => {}}
             onDelete={deleteFromCart}
             onIncreaseQuantity={(product) => onIncreaseQuantity(product.id)}
             onDecreaseQuantity={(product) => onDecreaseQuantity(product.id)}
