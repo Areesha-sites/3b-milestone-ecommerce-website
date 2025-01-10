@@ -16,10 +16,7 @@ import {
 } from "@/app/utils/localStorageHelper";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -43,8 +40,8 @@ const PopularCard = ({
   quantity,
 }: Product) => {
   const [isAddedToWishlist, setIsAddedToWishlist] = useState<boolean>(false);
-  const [showPopup, setShowPopup] = useState<boolean>(false);
-  const [isSideMenuOpen, setIsSideMenuOpen] = useState<boolean>(false);
+  // const [showPopup, setShowPopup] = useState<boolean>(false);
+  // const [isSideMenuOpen, setIsSideMenuOpen] = useState<boolean>(false);
   const [cartItems, setCartItems] = useState<Product[]>([]);
   const [sheetOpen, setSheetOpen] = useState(false);
 
@@ -80,7 +77,7 @@ const PopularCard = ({
 
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     setCartItems(updatedCart);
-    setIsSideMenuOpen(true);
+    // setIsSideMenuOpen(true);
   };
   const handleDeleteFromCart = (product: Product) => {
     const updatedCart = cartItems.filter(
@@ -114,9 +111,9 @@ const PopularCard = ({
   // const closeSideMenu = () => {
   //   setIsSideMenuOpen(false);
   // };
-  const goToCart = () => {
-    setIsSideMenuOpen(false);
-  };
+  // const goToCart = () => {
+  //   setIsSideMenuOpen(false);
+  // };
   const calculateTotalPrice = () => {
     return cartItems.reduce(
       (total, item) => total + item.price * item.quantity!,
@@ -127,8 +124,8 @@ const PopularCard = ({
     const item = { id, name, image, price, discount, stock };
     addToWishlist(item);
     setIsAddedToWishlist(true);
-    setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 2000);
+    // setShowPopup(true);
+    // setTimeout(() => setShowPopup(false), 2000);
   };
   const handleRemoveFromWishlist = () => {
     removeFromWishlist(id);
@@ -249,7 +246,7 @@ const PopularCard = ({
                 products={cartItems}
                 isOpen={true}
                 onClose={() => setSheetOpen(false)}
-                onAddToCart={goToCart}
+                // onAddToCart={goToCart}
                 onDelete={handleDeleteFromCart}
                 onIncreaseQuantity={handleIncreaseQuantity}
                 onDecreaseQuantity={handleDecreaseQuantity}
