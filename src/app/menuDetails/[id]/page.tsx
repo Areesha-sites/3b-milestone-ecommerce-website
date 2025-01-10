@@ -360,7 +360,7 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
             <CardsSlider />
           </div>
         </div>
-        <CartSideMenu
+        {/* <CartSideMenu
           products={cartItems} 
           isOpen={isSideMenuOpen} 
           onClose={closeSideMenu} 
@@ -369,7 +369,7 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
           onIncreaseQuantity={handleIncreaseQuantity} 
           onDecreaseQuantity={handleDecreaseQuantity} 
           totalPrice={calculateTotalPrice()}
-        />
+        /> */}
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
           <Alert onClose={handleClose} severity="success" variant="filled">
             Added to wishlist successfully!
