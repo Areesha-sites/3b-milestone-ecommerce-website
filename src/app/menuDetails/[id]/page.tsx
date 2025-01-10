@@ -10,8 +10,8 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { RiFacebookFill } from "react-icons/ri";
 import { FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
 import { MenuDetailsPropsTypes } from "../../../../types/componentsTypes";
-import { useEffect } from "react";
-import CartSideMenu from "@/components/CartSideMenu";
+// import { useEffect } from "react";
+// import CartSideMenu from "@/components/CartSideMenu";
 import Snackbar, { SnackbarCloseReason } from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import CardsSlider from "@/components/Slider";
@@ -24,15 +24,15 @@ interface Props {
     id: string;
   };
 }
-interface Product {
-  id: string;
-  name: string;
-  image: string;
-  price: number;
-  discount?: number;
-  stock?: number | string;
-  quantity: number;
-}
+// interface Product {
+//   id: string;
+//   name: string;
+//   image: string;
+//   price: number;
+//   discount?: number;
+//   stock?: number | string;
+//   quantity: number;
+// }
 const MenuDetails: React.FC<Props> = ({ params }) => {
   const [isAddedToWishlist, setIsAddedToWishlist] = useState<boolean>(false);
   const [count, setCount] = useState<number>(1);
@@ -65,18 +65,18 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
     }
   };
   // const [showPopup, setShowPopup] = useState<boolean>(false);
-  const [isSideMenuOpen, setIsSideMenuOpen] = useState<boolean>(false);
-  const [cartItems, setCartItems] = useState<Product[]>([]);
-  useEffect(() => {
-    try {
-      const savedCart = localStorage.getItem("cart");
-      const parsedCart = savedCart ? JSON.parse(savedCart) : [];
-      setCartItems(parsedCart);
-    } catch (error) {
-      console.error("Error parsing cart data from localStorage:", error);
-      setCartItems([]);
-    }
-  }, []);
+  // const [isSideMenuOpen, setIsSideMenuOpen] = useState<boolean>(false);
+  // const [cartItems, setCartItems] = useState<Product[]>([]);
+  // useEffect(() => {
+  //   try {
+  //     const savedCart = localStorage.getItem("cart");
+  //     const parsedCart = savedCart ? JSON.parse(savedCart) : [];
+  //     setCartItems(parsedCart);
+  //   } catch (error) {
+  //     console.error("Error parsing cart data from localStorage:", error);
+  //     setCartItems([]);
+  //   }
+  // }, []);
   // const handleAddToCart = (product: Product) => {
   //   const updatedCart = [...cartItems];
   //   const existingProductIndex = updatedCart.findIndex(
@@ -94,47 +94,47 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
   //   setCartItems(updatedCart);
   //   setIsSideMenuOpen(true);
   // };
-  const handleDeleteFromCart = (product: Product) => {
-    const updatedCart = cartItems.filter(
-      (item: Product) => item.name !== product.name
-    );
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-    setCartItems(updatedCart);
-  };
-  const handleIncreaseQuantity = (product: Product) => {
-    const updatedCart = [...cartItems];
-    const productIndex = updatedCart.findIndex(
-      (item: Product) => item.name === product.name
-    );
-    if (productIndex >= 0) {
-      updatedCart[productIndex].quantity! += 1;
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-      setCartItems(updatedCart);
-    }
-  };
-  const handleDecreaseQuantity = (product: Product) => {
-    const updatedCart = [...cartItems];
-    const productIndex = updatedCart.findIndex(
-      (item: Product) => item.name === product.name
-    );
-    if (productIndex >= 0 && updatedCart[productIndex].quantity! > 1) {
-      updatedCart[productIndex].quantity! -= 1;
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-      setCartItems(updatedCart);
-    }
-  };
-  const closeSideMenu = () => {
-    setIsSideMenuOpen(false);
-  };
-  const goToCart = () => {
-    setIsSideMenuOpen(false);
-  };
-  const calculateTotalPrice = () => {
-    return cartItems.reduce(
-      (total, item) => total + item.price * item.quantity!,
-      0
-    );
-  };
+  // const handleDeleteFromCart = (product: Product) => {
+  //   const updatedCart = cartItems.filter(
+  //     (item: Product) => item.name !== product.name
+  //   );
+  //   localStorage.setItem("cart", JSON.stringify(updatedCart));
+  //   setCartItems(updatedCart);
+  // };
+  // const handleIncreaseQuantity = (product: Product) => {
+  //   const updatedCart = [...cartItems];
+  //   const productIndex = updatedCart.findIndex(
+  //     (item: Product) => item.name === product.name
+  //   );
+  //   if (productIndex >= 0) {
+  //     updatedCart[productIndex].quantity! += 1;
+  //     localStorage.setItem("cart", JSON.stringify(updatedCart));
+  //     setCartItems(updatedCart);
+  //   }
+  // };
+  // const handleDecreaseQuantity = (product: Product) => {
+  //   const updatedCart = [...cartItems];
+  //   const productIndex = updatedCart.findIndex(
+  //     (item: Product) => item.name === product.name
+  //   );
+  //   if (productIndex >= 0 && updatedCart[productIndex].quantity! > 1) {
+  //     updatedCart[productIndex].quantity! -= 1;
+  //     localStorage.setItem("cart", JSON.stringify(updatedCart));
+  //     setCartItems(updatedCart);
+  //   }
+  // };
+  // const closeSideMenu = () => {
+  //   setIsSideMenuOpen(false);
+  // };
+  // const goToCart = () => {
+  //   setIsSideMenuOpen(false);
+  // };
+  // const calculateTotalPrice = () => {
+  //   return cartItems.reduce(
+  //     (total, item) => total + item.price * item.quantity!,
+  //     0
+  //   );
+  // };
   const [open, setOpen] = React.useState(false);
 
   // const handleClick = () => {
