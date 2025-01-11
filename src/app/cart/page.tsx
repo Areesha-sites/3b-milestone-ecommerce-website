@@ -98,9 +98,11 @@ const Cart = () => {
                       <Image
                         src={product.image}
                         alt={product.name}
-                        height={60}
-                        width={60}
-                        className="md:w-[70px] md:h-[70px] w-[50px] h-[50px] hover:scale-110 transition-all duration-300 ease-linear cursor-pointer"
+                        width={1000}
+                        height={1000}
+                        quality={100}
+                        priority
+                        className="md:w-[70px] md:h-[70px] w-[50px] h-[50px] hover:scale-110 transition-all duration-300 ease-linear cursor-pointer object-contain"
                       />
                     </div>
                     <div className="flex justify-between items-center w-full">
