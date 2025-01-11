@@ -9,7 +9,7 @@ import { WishlistItem } from "../../types/componentsTypes";
 const Wishlist = () => {
   const [wishlist, setWishlist] = useState<WishlistItem[]>([]);
   useEffect(() => {
-    const savedWishlist = getWishlist();
+    const savedWishlist = getWishlist() as WishlistItem[];
     setWishlist(savedWishlist);
   }, []);
   const handleDelete = (itemId: string) => {
