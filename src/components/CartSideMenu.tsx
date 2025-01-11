@@ -114,7 +114,7 @@ const CartSideMenu = ({
                       height={1000}
                       quality={100}
                       priority
-                      className="w-[40px] h-[40px] object-cover"
+                      className="w-[40px] h-[40px] object-contain"
                     />
                   )}
                 </div>
