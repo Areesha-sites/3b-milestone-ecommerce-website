@@ -14,7 +14,7 @@ import { MenuDetailsPropsTypes } from "../../../../types/componentsTypes";
 // import CartSideMenu from "@/components/CartSideMenu";
 import Snackbar, { SnackbarCloseReason } from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
-import CardsSlider from "@/components/Slider";
+// import CardsSlider from "@/components/Slider";
 import {
   addToWishlist,
   removeFromWishlist,
@@ -199,8 +199,10 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
             <Image
               src={product.image}
               alt="menu-image"
-              height={200}
-              width={200}
+              width={1000}
+              height={1000}
+              quality={100}
+              priority
               className="xl:h-[300px] xl:w-[360px] lg:h-[270px] lg:w-[340px] md:w-[230px] md:h-[200px] hover:scale-105 transition-all ease-linear duration-300 h-full w-full object-contain 2xl:w-[500px] 2xl:h-[500px] "
             />
           </div>
@@ -347,7 +349,7 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
             </ul>
           </div>
         </div>
-        <div className="mt-44">
+        {/* <div className="mt-44">
           <div className="flex flex-col gap-y-[5px] ml-5">
             <p className="xl:text-[18px] md:text-[15px] text-[14px] mb-[-20px] lg:mb-[-10px] md:mb-[-10px] font-greatVibes text-btnBackground font-normal ">
               You might also like
@@ -359,7 +361,7 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
           <div className="relative">
             <CardsSlider />
           </div>
-        </div>
+        </div> */}
         {/* <CartSideMenu
           products={cartItems} 
           isOpen={isSideMenuOpen} 

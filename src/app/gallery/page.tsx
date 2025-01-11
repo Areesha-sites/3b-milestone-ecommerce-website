@@ -54,8 +54,10 @@ const Gallery = () => {
             data-aos-delay="300"
             src="/gallery_01.jpg"
             alt=""
-            height={500}
-            width={500}
+            width={1000}
+            height={1000}
+            quality={100}
+            priority
             className="xl:h-[400px] xl:w-[700px] md:h-[300px] md:w-[335px] w-[85px] h-[85px] rounded-[5px] shadow-md shadow-stone-700 object-cover xl:relative md:left-[-200px] lg:h-[300px] lg:w-[570px]"
           />
           <Image
@@ -63,8 +65,10 @@ const Gallery = () => {
             data-aos-delay="300"
             src="/gallery_02.jpg"
             alt=""
-            height={500}
-            width={500}
+            width={1000}
+            height={1000}
+            quality={100}
+            priority
             className="xl:h-[400px] object-cover xl:w-[450px] md:h-[300px] md:w-[300px] w-[85px] h-[85px] rounded-[5px] shadow-md shadow-stone-700 absolute top-0 md:left-[345px] left-[95px] lg:left-[579px] xl:left-[537px]"
           />
           <Image
@@ -72,8 +76,10 @@ const Gallery = () => {
             data-aos-delay="300"
             src="/gallery_03.jpg"
             alt=""
-            height={500}
-            width={500}
+            width={1000}
+            height={1000}
+            quality={100}
+            priority
             className="xl:h-[400px] object-cover xl:w-[400px] md:h-[200px] md:w-[210px] w-[85px] h-[85px] rounded-[5px] shadow-md shadow-stone-700 relative md:top-[15px] top-[-84px] left-[190px] xl:left-[-197px] md:left-0 lg:w-[290px] lg:h-[270px]"
           />
           <Image
@@ -81,8 +87,10 @@ const Gallery = () => {
             data-aos-delay="300"
             src="/gallery_04.jpg"
             alt=""
-            height={500}
-            width={500}
+            width={1000}
+            height={1000}
+            quality={100}
+            priority
             className="xl:h-[400px] object-cover xl:w-[345px] md:h-[200px] md:w-[210px] w-[85px] h-[85px] rounded-[5px] shadow-md shadow-stone-700 absolute xl:left-[241px] md:left-[217px] xl:top-[415px] md:top-[315px] top-[100px] lg:w-[290px] lg:h-[270px] lg:left-[300px] "
           />
           <Image
@@ -90,8 +98,10 @@ const Gallery = () => {
             data-aos-delay="300"
             src="/gallery_05.jpg"
             alt=""
-            height={500}
-            width={500}
+            width={1000}
+            height={1000}
+            quality={100}
+            priority
             className="xl:h-[400px] object-cover xl:w-[390px] md:h-[200px] md:w-[210px]  w-[85px] h-[85px] rounded-[5px] shadow-md shadow-stone-700 absolute xl:left-[596px] md:left-[435px] left-[95px] xl:top-[415px] md:top-[315px] top-[100px] lg:w-[280px] lg:h-[270px] lg:left-[600px] "
           />
           <Image
@@ -99,8 +109,10 @@ const Gallery = () => {
             data-aos-delay="300"
             src="/gallery_08.jpg"
             alt=""
-            height={500}
-            width={500}
+            width={1000}
+            height={1000}
+            quality={100}
+            priority
             className="xl:h-[400px] object-cover xl:w-[360px] md:h-[200px] md:w-[210px]  w-[85px] h-[85px] rounded-[5px] shadow-md shadow-stone-700 relative md:top-[30px] top-[-70px] left-[189px] xl:left-[-197px] md:left-0 lg:w-[290px] lg:h-[270px]"
           />
           <Image
@@ -108,8 +120,10 @@ const Gallery = () => {
             data-aos-delay="300"
             src="/gallery_09.jpg"
             alt=""
-            height={500}
-            width={500}
+            width={1000}
+            height={1000}
+            quality={100}
+            priority
             className="xl:h-[400px] object-cover xl:w-[360px] md:h-[200px] md:w-[210px] w-[85px] h-[85px] rounded-[5px] shadow-md shadow-stone-700 absolute xl:top-[830px] xl:left-[200px] top-[200px] left-[50px] md:top-[530px] md:left-[217px] lg:w-[290px] lg:h-[270px] lg:left-[300px] lg:top-[601px]"
           />
           <Image
@@ -117,8 +131,10 @@ const Gallery = () => {
             data-aos-delay="300"
             src="/gallery_10.jpg"
             alt=""
-            height={500}
-            width={500}
+            width={1000}
+            height={1000}
+            quality={100}
+            priority
             className="xl:h-[400px] object-cover xl:w-[415px] w-[85px] h-[85px] md:h-[200px] md:w-[210px] rounded-[5px] shadow-md shadow-stone-700 absolute md:top-[530px] xl:top-[830px] top-[200px] xl:left-[570px] md:left-[435px] left-[145px] lg:w-[280px] lg:h-[270px] lg:left-[600px] lg:top-[601px]"
           />
         </div>

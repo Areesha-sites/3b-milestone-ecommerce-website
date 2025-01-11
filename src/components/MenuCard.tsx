@@ -27,7 +27,7 @@ export interface Product {
   name: string;
   price: number;
   discount?: number;
-  des?: string; 
+  des?: string;
   reviews?: number;
   des1?: string;
   des2?: string;
@@ -37,7 +37,7 @@ export interface Product {
   benefits4?: string;
   benefits5?: string;
   stock?: number;
-  quantity?: number; 
+  quantity?: number;
 }
 const PopularCard = ({
   id,
@@ -76,18 +76,18 @@ const PopularCard = ({
     const existingProductIndex = updatedCart.findIndex(
       (item) => item.id === product.id
     );
-  
+
     if (existingProductIndex >= 0) {
       updatedCart[existingProductIndex].quantity =
         (updatedCart[existingProductIndex].quantity || 0) + 1;
     } else {
       updatedCart.push({ ...product, quantity: 1 });
     }
-  
+
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     setCartItems(updatedCart);
   };
-  
+
   const handleDeleteFromCart = (product: Product) => {
     const updatedCart = cartItems.filter(
       (item: Product) => item.name !== product.name
@@ -101,7 +101,8 @@ const PopularCard = ({
       (item: Product) => item.name === product.name
     );
     if (productIndex >= 0) {
-      updatedCart[productIndex].quantity = (updatedCart[productIndex].quantity || 0) + 1;
+      updatedCart[productIndex].quantity =
+        (updatedCart[productIndex].quantity || 0) + 1;
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       setCartItems(updatedCart);
     }
@@ -180,9 +181,11 @@ const PopularCard = ({
           </div>
           <div className="flex justify-center items-center h-48 hover:bg-yellow-500 transition duration-300 rounded-[20px] ">
             <Image
-              height={170}
-              width={170}
-              className="rounded-t-lg object-cover cursor-pointer hover:scale-110 transition-all duration-500 ease-in-out"
+              width={1000}
+              height={1000}
+              quality={100}
+              priority
+              className="rounded-t-lg h-[170px] w-[170px] object-contain cursor-pointer hover:scale-110 transition-all duration-500 ease-in-out"
               src={image}
               alt={name}
             />

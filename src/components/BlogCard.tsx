@@ -23,8 +23,10 @@ const BlogCard = ({
           data-aos-delay="300"
           src={image}
           alt={title}
-          width={600}
-          height={400}
+          width={1000}
+          height={1000}
+          quality={100}
+          priority
           className="w-full h-[200px] lg:h-[400px] xxl:w-full xxl:h-[400px] rounded-[10px] md:h-[300px] object-cover mx-auto"
         />
         <div

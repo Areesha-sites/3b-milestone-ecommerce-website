@@ -20,8 +20,8 @@ interface Props {
   params: {
     id: string;
   };
-  };
-const BlogDetails= ({ params }:Props) => {
+}
+const BlogDetails = ({ params }: Props) => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -90,8 +90,8 @@ const BlogDetails= ({ params }:Props) => {
             className="uppercase xl:text-[48px] md:text-[38px] text-[28px] leading-[30px] font-bold font-poppins lg:text-[43px] text-center md:leading-[35px] lg:leading-[40px] lg:px-11 xl:w-[800px] xl:leading-[48px] xxl:text-[54px]"
           >
             Fast & Flavorful:{" "}
-            <span className="text-btnBackground"> 5-Minute</span> Meal Ideas
-            You will Love
+            <span className="text-btnBackground"> 5-Minute</span> Meal Ideas You
+            will Love
           </h1>
           <div
             data-aos="fade-up"
@@ -105,8 +105,8 @@ const BlogDetails= ({ params }:Props) => {
           >
             This blog dives into easy to follow recipes that are perfect for
             busy individuals. Learn how to prepare hearty breakfasts, fulfilling
-            lunches, and simple dinners all in under 5 minutes. Whether you are a
-            working professional, a student, or a parent, these time saving
+            lunches, and simple dinners all in under 5 minutes. Whether you are
+            a working professional, a student, or a parent, these time saving
             recipes will fit seamlessly into your schedule while delivering
             mouthwatering flavors
           </p>
@@ -165,8 +165,10 @@ const BlogDetails= ({ params }:Props) => {
               data-aos-delay="200"
               src={product.image}
               alt={product.title}
-              width={600}
-              height={400}
+              width={1000}
+              height={1000}
+              quality={100}
+              priority
               className="lg:w-[700px] lg:h-[400px] w-full mx-auto h-[200px] md:h-[270px] md:px-20 lg:rounded-[10px] object-cover lg:px-0"
             />
             <h2
@@ -266,8 +268,10 @@ const BlogDetails= ({ params }:Props) => {
               data-aos-delay="200"
               src={product.img1}
               alt={product.title}
-              width={200}
-              height={150}
+              width={1000}
+              height={1000}
+              quality={100}
+              priority
               className="lg:h-[250px] lg:w-[250px] w-full mx-auto h-[200px] md:h-[270px] md:px-20  object-cover rounded-[10px] lg:px-0 lg:mx-0"
             />
             <p
@@ -349,8 +353,8 @@ const BlogDetails= ({ params }:Props) => {
                     </p>
                     <p className="font-roboto text-[12px] lg:text-[14px] xxl:text-[16px] text-white/50 font-normal">
                       Craving a delicious homemade pizza? Check out my latest
-                      recipe for a classic Margherita pizza. I have included tips
-                      on making your own dough and finding the freshest
+                      recipe for a classic Margherita pizza. I have included
+                      tips on making your own dough and finding the freshest
                       ingredients.
                     </p>
                   </div>
@@ -376,8 +380,10 @@ const BlogDetails= ({ params }:Props) => {
               <Image
                 src="/author_img3.jpg"
                 alt="author"
-                width={100}
-                height={100}
+                width={1000}
+                height={1000}
+                quality={100}
+                priority
                 className="lg:h-[90px] lg:w-[90px] h-[50px] w-[50px] rounded-full object-cover"
               />
               <div className="flex xl:justify-between justify-center ">
@@ -415,8 +421,10 @@ const BlogDetails= ({ params }:Props) => {
               <Image
                 src="/author_img4.jpg"
                 alt="author"
-                width={100}
-                height={100}
+                width={1000}
+                height={1000}
+                quality={100}
+                priority
                 className="lg:h-[90px] lg:w-[90px] h-[50px] w-[50px] rounded-full object-cover"
               />
               <div className="flex xl:justify-between justify-center ">
@@ -429,8 +437,8 @@ const BlogDetails= ({ params }:Props) => {
                   </p>
                   <p className="font-roboto text-[12px] lg:text-[14px] xxl:text-[16px] text-white/50 font-normal">
                     Just baked a batch of chocolate chip cookies using my
-                    grandmas secret recipe. They turned out amazing! Sharing
-                    the recipe soon. Stay tuned!
+                    grandmas secret recipe. They turned out amazing! Sharing the
+                    recipe soon. Stay tuned!
                   </p>
                 </div>
                 <div className="flex gap-[5px]">

@@ -26,8 +26,10 @@ const About = () => {
               data-aos-delay="200"
               src="/burger-text.png"
               alt="burger-text"
-              height={100}
-              width={100}
+              width={1000}
+              height={1000}
+              quality={100}
+              priority
               className="h-[100px] w-[100px] xl:h-[200px] xl:w-[200px] mx-auto absolute top-[10px] left-[30px] z-30 lg:top-[10px] lg:left-[70px] lg:w-[150px] lg:h-[150px] xl:top-0 xl:left-0 floating"
             />
             <Image
@@ -35,8 +37,10 @@ const About = () => {
               data-aos-delay="200"
               src="/burgur.png"
               alt="burger"
-              height={200}
-              width={200}
+              width={1000}
+              height={1000}
+              quality={100}
+              priority
               className="h-[250px] w-[250px] xl:h-[400px] xl:w-[450px] mx-auto mt-4 xl:top-0 relative md:w-[300px] md:h-[300px] lg:h-[300px] lg:w-[350px]"
             />
             <div
@@ -85,8 +89,10 @@ const About = () => {
                   <Image
                     src="/food-1-svgrepo-com.svg"
                     alt="food"
-                    height={50}
-                    width={50}
+                    width={1000}
+                    height={1000}
+                    quality={100}
+                    priority
                     className="h-[55px] w-[55px]"
                   />
                 </div>
@@ -109,8 +115,10 @@ const About = () => {
                   <Image
                     src="/medal-reward-svgrepo-com.svg"
                     alt="medal"
-                    height={50}
-                    width={50}
+                    width={1000}
+                    height={1000}
+                    quality={100}
+                    priority
                     className="h-[50px] w-[50px]"
                   />
                 </div>
@@ -138,6 +146,7 @@ const About = () => {
               layout="fill"
               objectFit="cover"
               quality={100}
+              priority
               className="z-0"
             />
           </div>
@@ -166,8 +175,10 @@ const About = () => {
                   data-aos-delay="200"
                   src="/tomato (1).png"
                   alt=""
-                  height={100}
-                  width={100}
+                  width={1000}
+                  height={1000}
+                  quality={100}
+                  priority
                   className="xl:w-[100px] animate-upDown xl:h-[130px] h-[50px] w-[30px] absolute left-0 rop-[30%] md:top-[70%] xl:top-[60%] lg:top-[90%] "
                 />
               </div>
@@ -177,8 +188,10 @@ const About = () => {
                   data-aos-delay="200"
                   src="/delivery-man.png"
                   alt="delivery man"
-                  height={100}
-                  width={100}
+                  width={1000}
+                  height={1000}
+                  quality={100}
+                  priority
                   className="xl:h-[300px] xl:w-[400px] h-[180px] w-[230px] md:w-[300px] md:h-[200px] lg:h-[250px] lg:w-[360px]"
                 />
               </div>
@@ -188,8 +201,10 @@ const About = () => {
                   data-aos-delay="200"
                   src="/chilli.png"
                   alt=""
-                  height={50}
-                  width={50}
+                  width={1000}
+                  height={1000}
+                  quality={100}
+                  priority
                   className="xl:w-[70px] xl:h-[70px] h-[50px] w-[50px] absolute right-0 top-[30%] md:top-[10%] xl:top-[30%] lg:top-[10%] animate-upDown"
                 />
               </div>

@@ -32,9 +32,11 @@ const TwoCards = ({ image, heading }: TwoCardsPropsType) => {
           <Image
             src={image}
             alt="burgur"
-            height={100}
-            width={100}
-            className="xl:h-[200px] xl:w-[200px] lg:w-[300px] lg:h-[200px] w-[110px] h-[110px ] discountImage md:w-[270px] md:h-[250px] "
+            width={1000}
+            height={1000}
+            quality={100}
+            priority
+            className="xl:h-[220px] xl:w-[200px] lg:w-[300px] lg:h-[200px] w-[110px] h-[110px ] discountImage md:w-[270px] md:h-[250px] "
           />
         </div>
       </div>

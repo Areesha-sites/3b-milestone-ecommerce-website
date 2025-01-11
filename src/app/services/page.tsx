@@ -115,7 +115,7 @@ const Services = () => {
               data-aos="fade-up"
               data-aos-delay="200"
               key={service.id}
-              className="w-full h-[220px] card-bg shadow-2xl px-4 py-7 flex flex-col xl:justify-start gap-[10px] group hover:bg-btnBackground transition-all duration-500 ease-linear cursor-pointer justify-center"
+              className="w-full h-[230px] card-bg shadow-2xl px-4 py-7 flex flex-col xl:justify-start gap-[10px] group hover:bg-hoverBtnBackground transition-all duration-500 ease-linear cursor-pointer justify-center"
             >
               <div className="text-btnBackground transition duration-300">
                 {service.icon}
