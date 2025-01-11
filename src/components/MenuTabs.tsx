@@ -44,14 +44,14 @@ const MenuTabs = () => {
       {filteredData.length > 0 ? (
           filteredData.map((item, index) => (
             <MenuCard
-              key={index}
-              id={item.id}
-              name={item.name}
-              image={item.image}
-              price={item.price}
-              quantity={item.quantity || 1}  
-              stock={typeof item.stock === "number" ? item.stock : "Out of Stock"}
-            />
+            key={index}
+            id={item.id}
+            name={item.name}
+            image={item.image}
+            price={item.price}
+            quantity={item.quantity || 1}
+            stock={typeof item.stock === "number" ? item.stock : 0} 
+          />
           ))
         ) : (
           <p className="text-gray-500">No items available for this category.</p>
