@@ -11,8 +11,10 @@ const BestTestedFood = () => {
             data-aos-delay="200"
             src="/best-food-image.jpg"
             alt="burger"
-            height={500}
-            width={500}
+            width={1000}
+            height={1000}
+            quality={100}
+            priority
             className="lg:h-[350px] lg:w-[530px] md:h-[300px] xxl:h-[400px] w-full object-cover h-[200px] rounded-[20px]"
           />
           <div className=" lg:w-[497px] xl:w-[579px] md:w-[497px] w-full h-[350px] flex justify-between flex-col">
@@ -47,8 +49,10 @@ const BestTestedFood = () => {
                   <Image
                     src="/correct-signal-svgrepo-com (3).svg"
                     alt="true-icon"
-                    height={16}
-                    width={16}
+                    width={1000}
+                  height={1000}
+                  quality={100}
+                  priority
                     className="h-[14px] w-[14px] font-bold text-btnBackground"
                   />
                   <span className="font-roboto xxl:text-[16px]  text-white/60 md:text-[14px] text-[12px] whitespace-nowrap">
@@ -63,8 +67,10 @@ const BestTestedFood = () => {
                   <Image
                     src="/correct-signal-svgrepo-com (3).svg"
                     alt="true-icon"
-                    height={16}
-                    width={16}
+                    width={1000}
+                  height={1000}
+                  quality={100}
+                  priority
                     className="h-[14px] w-[14px] font-bold text-btnBackground"
                   />
                   <span className="font-roboto xxl:text-[16px] text-white/60 md:text-[14px] text-[12px] whitespace-nowrap">
@@ -81,8 +87,10 @@ const BestTestedFood = () => {
                   <Image
                     src="/correct-signal-svgrepo-com (3).svg"
                     alt="true-icon"
-                    height={16}
-                    width={16}
+                    width={1000}
+                  height={1000}
+                  quality={100}
+                  priority
                     className="h-[14px] w-[14px] font-bold text-btnBackground"
                   />
                   <span className="font-roboto xxl:text-[16px] text-white/60  md:text-[14px] text-[12px] whitespace-nowrap">
@@ -97,8 +105,10 @@ const BestTestedFood = () => {
                   <Image
                     src="/correct-signal-svgrepo-com (3).svg"
                     alt="true-icon"
-                    height={16}
-                    width={16}
+                    width={1000}
+                  height={1000}
+                  quality={100}
+                  priority
                     className="h-[14px] w-[14px] font-bold text-btnBackground"
                   />
                   <span className="font-roboto xxl:text-[16px]  text-white/60 md:text-[14px] text-[12px] md:whitespace-nowrap whitespace-normal leading-[13px] ">

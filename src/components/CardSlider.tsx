@@ -8,9 +8,9 @@ const ContactCardSlider = ({ image }: FollowProps) => {
         src={image}
         alt="images"
         width={1000}
-            height={1000}
-            quality={100}
-            priority
+        height={1000}
+        quality={100}
+        priority
         className="object-cover h-[250px] w-[600px]"
       />
       <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center ">

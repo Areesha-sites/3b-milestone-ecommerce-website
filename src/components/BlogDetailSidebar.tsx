@@ -114,8 +114,10 @@ const BlogDetailSidebar = () => {
               <Image
                 src="/sidebar1.jpg"
                 alt="product 1"
-                height={100}
-                width={100}
+                width={1000}
+                height={1000}
+                quality={100}
+                priority
                 className="h-[60px] w-[80px] rounded-[5px] object-cover"
               />
               <div className="flex flex-col gap-[5px]">
@@ -134,8 +136,10 @@ const BlogDetailSidebar = () => {
               <Image
                 src="/sidebar2.jpg"
                 alt="product 2"
-                height={100}
-                width={100}
+                width={1000}
+                height={1000}
+                quality={100}
+                priority
                 className="h-[60px] w-[80px] rounded-[5px] object-cover"
               />
               <div className="flex flex-col gap-[5px]">
@@ -154,8 +158,10 @@ const BlogDetailSidebar = () => {
               <Image
                 src="/sidebar3.jpg"
                 alt="product 3"
-                height={100}
-                width={100}
+                width={1000}
+                height={1000}
+                quality={100}
+                priority
                 className="h-[60px] w-[80px] rounded-[5px] object-cover"
               />
               <div className="flex flex-col gap-[5px]">

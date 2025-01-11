@@ -14,9 +14,11 @@ const ThreeCards = ({ image, title, text, bgColor }: ThreeCardsPropsType) => {
           src={image}
           alt="menu-image"
           layout="intrinsic"
-          width={100}
-          height={100}
-          className="rounded discountImage "
+          width={1000}
+          height={1000}
+          quality={100}
+          priority
+          className="rounded discountImage w-[100px] h-[100px]"
         />
       </div>
       <div className="flex flex-col justify-center ">

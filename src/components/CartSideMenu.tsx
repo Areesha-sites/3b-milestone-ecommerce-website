@@ -110,8 +110,10 @@ const CartSideMenu = ({
                     <Image
                       src={product.image}
                       alt={product.name}
-                      height={60}
-                      width={60}
+                      width={1000}
+                      height={1000}
+                      quality={100}
+                      priority
                       className="w-[40px] h-[40px] object-cover"
                     />
                   )}

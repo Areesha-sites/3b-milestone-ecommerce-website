@@ -43,11 +43,11 @@ const Wishlist = () => {
             <Image
               src="/sad.jpg"
               alt="illustration"
-              height={300}
-              width={300}
-              quality={90}
-              priority
-              className="object-cover"
+              width={1000}
+                  height={1000}
+                  quality={100}
+                  priority
+              className="object-cover h-[300px] w-[300px]"
             />
           </div>
         </>
@@ -99,8 +99,10 @@ const Wishlist = () => {
                 <Image
                   src={item.image}
                   alt={item.name}
-                  height={100}
-                  width={100}
+                  width={1000}
+                  height={1000}
+                  quality={100}
+                  priority
                   className="md:h-[60px] md:w-[60px] w-[30px] h-[30px] discountImage"
                 />
                 <div className="flex flex-col gap-[3px]">

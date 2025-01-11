@@ -24,16 +24,20 @@ const TestimonialCards = () => {
           <Image
             src={testimonialsData[currentIndex].image}
             alt={testimonialsData[currentIndex].name}
-            height={134}
-            width={133}
+            width={1000}
+                  height={1000}
+                  quality={100}
+                  priority
             className="md:w-[110px] md:h-[110px] w-[60px] h-[60px] object-cover rounded-full "
           />
           <div className="flex justify-center items-center flex-col mx-auto w-full gap-y-[5px]">
             <Image
               src="/quote-mark-svgrepo-com.svg"
               alt="quotes-image"
-              height={48}
-              width={48}
+              width={1000}
+              height={1000}
+              quality={100}
+              priority
               className="lg:w-[38px] lg:h-[38px] md:w-[36px] md:h-[36px] w-[25px] h-[25px]"
             />
             <p className=" w-full px-5 md:text-[14px] xxl:text-[16px] text-[10px] md:px-3 text-white/50 font-roboto text-center">
