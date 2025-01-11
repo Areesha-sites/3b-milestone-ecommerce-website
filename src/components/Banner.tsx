@@ -25,7 +25,7 @@ const Banner = () => {
             clickable: true,
           }}
           navigation={true}
-         onSlideChange={handleSlideChanged}
+          onSlideChange={handleSlideChanged}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
         >
@@ -97,8 +97,9 @@ const Banner = () => {
                       data-aos-delay="200"
                       src="/slider1.png"
                       alt="chicken"
-                      height={200}
-                      width={200}
+                      width={1000}
+                      height={1000}
+                      quality={100}
                       className="xl:h-[70vh] xl:w-[55vw] xxl:w-[50vw] lg:w-[60vw] lg:h-[66vh] xl:mt-16 lg:mt-12 z-10 relative md:w-[90vw] md:h-[60vh] w-[85vw] h-[45vh] mx-auto object-contain mt-14 left-[30px] animate-upDown"
                     />
                     <Image
@@ -192,8 +193,9 @@ const Banner = () => {
                       data-aos-delay="200"
                       src="/slider2.png"
                       alt="chicken"
-                      height={200}
-                      width={200}
+                      width={1000}
+                      height={1000}
+                      quality={100}
                       className="xl:h-[87vh] xl:w-[85vw] lg:w-[80vw] lg:h-[80vh] xl:mt-16 lg:mt-12 z-10 relative md:w-[100vw] md:h-[70vh] w-[90vw] h-[45vh] mx-auto object-contain mt-20 animate-upDown xxl:w-[80vw] xxl:h-[85vh] xl:left-[50px] "
                       style={{ marginTop: "0", top: "-10px" }}
                     />
@@ -288,8 +290,9 @@ const Banner = () => {
                       data-aos-delay="200"
                       src="/slider3.png"
                       alt="chicken"
-                      height={200}
-                      width={200}
+                      width={1000}
+                      height={1000}
+                      quality={100}
                       className="xl:h-[70vh] xl:w-[55vw] lg:w-[60vw] lg:h-[66vh] xl:mt-12 lg:mt-12 z-10 relative md:w-[90vw] md:h-[80vh] w-[85vw] h-[45vh] mx-auto object-contain mt-14 animate-spin md:-mt-14 xxl:w-[50vw] xxl:h-[80vh]"
                     />
                     <Image
