@@ -11,20 +11,21 @@ interface Product {
   name: string;
   image: string;
   price: number;
-  stock?: number ;
+  stock?: number;
   discount?: number;
-  quantity: number;
+  quantity?: number; 
 }
+// 80 668 30 890
 type CartSideMenuProps = {
   products: Product[];
   isOpen: boolean;
   onClose: () => void;
-  // onAddToCart: (product: Product) => void;
   onDelete: (product: Product) => void;
   onIncreaseQuantity: (product: Product) => void;
   onDecreaseQuantity: (product: Product) => void;
   totalPrice: number;
 };
+
 const CartSideMenu = ({
   products,
   isOpen,
@@ -58,7 +59,7 @@ const CartSideMenu = ({
   // };
   const calculateSubtotal = () => {
     return cartProducts.reduce(
-      (total, product) => total + product.price * product.quantity,
+      (total, product) => total + product.price * (product.quantity ?? 0),
       0
     );
   };
@@ -138,7 +139,7 @@ const CartSideMenu = ({
                         />
                       </div>
                       <p className="text-white/50">
-                        Total: ${product.price * product.quantity}{" "}
+                      Total: ${product.price * (product.quantity ?? 0)}
                       </p>
                     </div>
                   </div>

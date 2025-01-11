@@ -21,14 +21,23 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-interface Product {
+export interface Product {
   id: string;
-  name: string;
   image: string;
+  name: string;
   price: number;
   discount?: number;
+  des?: string; 
+  reviews?: number;
+  des1?: string;
+  des2?: string;
+  benefits1?: string;
+  benefits2?: string;
+  benefits3?: string;
+  benefits4?: string;
+  benefits5?: string;
   stock?: number;
-  quantity: number;
+  quantity?: number; 
 }
 const PopularCard = ({
   id,
@@ -55,30 +64,30 @@ const PopularCard = ({
   useEffect(() => {
     try {
       const savedCart = localStorage.getItem("cart");
-      const parsedCart = savedCart ? JSON.parse(savedCart) : [];
+      const parsedCart: Product[] = savedCart ? JSON.parse(savedCart) : [];
       setCartItems(parsedCart);
     } catch (error) {
-      console.error("Error parsing cart data from localStorage:", error);
+      console.error("Error parsing cart data:", error);
       setCartItems([]);
     }
   }, []);
-  const handleAddToCart = (product: Product) => {
+  const handleAddToCart = (product: Product): void => {
     const updatedCart = [...cartItems];
     const existingProductIndex = updatedCart.findIndex(
       (item) => item.id === product.id
     );
-
+  
     if (existingProductIndex >= 0) {
       updatedCart[existingProductIndex].quantity =
         (updatedCart[existingProductIndex].quantity || 0) + 1;
     } else {
       updatedCart.push({ ...product, quantity: 1 });
     }
-
+  
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     setCartItems(updatedCart);
-    // setIsSideMenuOpen(true);
   };
+  
   const handleDeleteFromCart = (product: Product) => {
     const updatedCart = cartItems.filter(
       (item: Product) => item.name !== product.name
@@ -92,7 +101,7 @@ const PopularCard = ({
       (item: Product) => item.name === product.name
     );
     if (productIndex >= 0) {
-      updatedCart[productIndex].quantity! += 1;
+      updatedCart[productIndex].quantity = (updatedCart[productIndex].quantity || 0) + 1;
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       setCartItems(updatedCart);
     }
@@ -114,9 +123,9 @@ const PopularCard = ({
   // const goToCart = () => {
   //   setIsSideMenuOpen(false);
   // };
-  const calculateTotalPrice = () => {
+  const calculateTotalPrice = (): number => {
     return cartItems.reduce(
-      (total, item) => total + item.price * item.quantity!,
+      (total, item) => total + item.price * (item.quantity || 0),
       0
     );
   };

@@ -11,7 +11,7 @@ const MenuCardsList = () => {
           image={item.image}
           name={item.name}
           price={item.price}
-          discount={item.discount}
+          discount={item.discount ? parseFloat(item.discount as string) : 0}
           des={item.des}
           reviews={item.reviews}
           des1={item.des1}
